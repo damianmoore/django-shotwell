@@ -1,0 +1,26 @@
+{% extends "shotwell/base.html" %}
+
+{% block content %}
+<div class="pagination">
+    <span class="step-links">
+        {% if photos.has_previous %}
+            <a href="?page={{ photos.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            {{ photos.number }} of {{ photos.paginator.num_pages }}
+        </span>
+
+        {% if photos.has_next %}
+            <a href="?page={{ photos.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+<ul>
+{% for photo in photos.object_list %}
+    <a href="/shotwell/photo/{{ photo.0 }}/"><li class="photo_thumb" style="background-image:url('{{ thumb_media }}thumbs128/{{ photo.2 }}');">&nbsp;</li></a>
+{% endfor %}
+</ul>
+{% endblock %}
+

@@ -1,0 +1,9 @@
+{% extends "shotwell/base.html" %}
+
+{% block content %}
+<!--div class="photo_preview" style="background-image:url('file://{{ photo.1 }}');"-->
+<div class="photo_preview" style="background-image:url('/shotwell/api/photo/{{ photo.0 }}/download/?max-size=800');">
+&nbsp;
+</div>
+{% endblock %}
+
